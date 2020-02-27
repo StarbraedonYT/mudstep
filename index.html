@@ -18,7 +18,8 @@
         <img src="Logos/Mudstep_Logo_Blue.png" style="width:120px;height:120px;" class="logo">
         <div class="header-right">
             <a class="active" href="#home">Home</a>
-            <a href="https://www.twitter.com/MudstepMusic">Twitter</a>
+            <a href="#mudstepbux">Mudstep Bux</a>
+            <a href="https://www.twitter.com/MudstepMusic" >Twitter</a>
             <a href="https://soundcloud.com/mudstepmusic">Soundcloud</a>
             <a href="https://mudstep.newgrounds.com/">Newgrounds</a>
             <a href="https://www.instagram.com/mudstepasaurus/">Instagram</a>
@@ -26,12 +27,11 @@
         </div>
     </div>
 
-    <h1>Songs</h1>
     <p>Most recent song. (Officially Released)</p>
 
-    <div style="text-align:center"><iframe width="560" height="315" src="https://www.youtube.com/embed/R9d32SJH44k"
-            frameborder="0" allow="accelerometer; 
-        autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    <div class="center">
+        <iframe class="latestVideoEmbed" vnum="0" cid="UCCsdJ9cURZBZ-Xupn9pG44A" allowfullscreen="" src="https://youtube.com/embed/w8NfWQYGrs0?controls=0&amp;autoplay=1" width="600" height="340" frameborder="0"></iframe>
+    </div>
 
     <br>
     <hr>
@@ -51,8 +51,32 @@
             <br>Message Mudstep on Discord (@Mudstep#7989) and he can discuss the pricing and details. Thank you!
     </p></small>
 
+    
+    <div class="center">
+        <a class="copyright" href="credits.html">Credits</a>
+        <p>Feb 27, 2020</p>
+    </div>
     <br>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        var reqURL = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=");
+        function loadVideo(iframe){
+            $.getJSON( reqURL + iframe.getAttribute('cid'),
+            function(data) {
+                var videoNumber = (iframe.getAttribute('vnum')?Number(iframe.getAttribute('vnum')):0);
+                console.log(videoNumber);
+                var link = data.items[videoNumber].link;
+                id = link.substr(link.indexOf("=") + 1);  
+                iframe.setAttribute("src","https://youtube.com/embed/"+id + "?controls=0&autoplay=1");
+            }
+        );
+        }
+        var iframes = document.getElementsByClassName('latestVideoEmbed');
+        for (var i = 0, len = iframes.length; i < len; i++){
+            loadVideo(iframes[i]);
+        }
+    </script>
 
 </body>
 

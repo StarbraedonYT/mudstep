@@ -3,6 +3,11 @@
   src: url('Couture.otf');
 }
 
+div.center {
+	text-align: center;
+	font-size: 6mm;
+}
+
 @font-face {
   font-family: Gotham;
   src: url('Gotham.otf');
@@ -13,18 +18,35 @@ img {
   align-content: center;
   -webkit-filter: drop-shadow(3px 3px 0 rgb(255, 255, 255));
   filter: drop-shadow(3px 3px 0 rgb(255, 255, 255));
+  transition: 0.70s;
+  -webkit-transition: 0.70s;
+  -moz-transition: 0.70s;
+  -ms-transition: 0.70s;
+  -o-transition: 0.70s;
 }
+
+img:hover {
+  transition: 1.70s;
+  -webkit-transition: 1.70s;
+  -moz-transition: 1.70s;
+  -ms-transition: 1.70s;
+  -o-transition: 1.70s;
+  -webkit-transform: rotate(720deg);
+  -moz-transform: rotate(720deg);
+  -o-transform: rotate(720deg);
+  -ms-transform: rotate(720deg);
+  transform: rotate(720deg);
+} 
 
 .header {
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: #1d1d1d;
 }
 
 .header a {
   font-family: Gotham;
   float: left;
-  color: black;
-  text-align: center;
+  color: white;
   padding: 12px;
   text-decoration: none;
   font-size: 18px;
@@ -66,10 +88,11 @@ img {
 body {
   margin: 0;
   padding: 0;
-  background-image: url(bg.png);
+  /*background-image: url(bg.png);*/
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-color: black;
 }
 
 .center {
@@ -92,10 +115,31 @@ h1 {
   font-size: 320%;
 }
 
+a:link {
+  text-align: center;
+  font-family: Gotham;
+  font-size: 140%;
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: lightskyblue;
+}
+
+a:active {
+  color: lightskyblue;
+}
+
 p {
   text-align: center;
   font-family: Gotham;
   font-size: 140%;
+  color: white;
 }
 
 hr {
